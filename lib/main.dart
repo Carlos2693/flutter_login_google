@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() {
+import 'package:flutter_login_google/config/constant/environment.dart';
+
+void main() async {
+  await Environment.initEnvironment();
+
   runApp(const MyApp());
 }
 
@@ -26,8 +30,8 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Building title'),
       ),
-      body: const Center(
-        child: Text('Building app...'),
+      body: Center(
+        child: Text(Environment.keyAuthGoogle),
       ),
     );
   }
