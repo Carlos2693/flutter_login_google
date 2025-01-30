@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 import 'package:flutter_login_google/config/constant/environment.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Environment.initEnvironment();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.androidFirebaseOption()
+  );
 
   runApp(const MyApp());
 }
