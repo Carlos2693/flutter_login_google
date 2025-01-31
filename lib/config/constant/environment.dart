@@ -6,4 +6,8 @@ class Environment {
   }
 
   static String keyAuthGoogle = dotenv.env['AUTH_GOOGLE_KEY'] ?? '';
+  static String apiId = dotenv.env['APP_ID'] ?? '';
+  static String messagingSenderId = dotenv.env['MESSAGING_SEND_ID'] ?? '';
+  static String projectId = dotenv.env['PROJECT_ID'] ?? '';
+  static String storageBucket = dotenv.env['STORAGE_BUCKET'] ?? '';
 }
