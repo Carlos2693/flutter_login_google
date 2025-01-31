@@ -8,10 +8,15 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 
+def properties = new Properties()
+file('../local.properties').withInputStream { inputStream -> properties.load(inputStream) }
+def minSdkVersion = properties.getProperty('flutter.minSdkVersion')
+def versionNdk = properties.getProperty('flutter.ndk')
+
 android {
     namespace = "com.example.flutter_login_google"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = versionNdk
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -27,7 +32,7 @@ android {
         applicationId = "com.example.flutter_login_google"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = Integer.parseInt(minSdkVersion)
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
